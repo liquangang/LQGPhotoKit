@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					16A1DB9D1EA39597003C5F95 = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = RYWQLEHRAM;
 						ProvisioningStyle = Automatic;
 					};
 					16A1DBB61EA39597003C5F95 = {
@@ -426,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.LQGPhotoKit;
@@ -437,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.LQGPhotoKit;
@@ -509,6 +512,7 @@
 				16A1DBCD1EA39597003C5F95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16A1DBCE1EA39597003C5F95 /* Build configuration list for PBXNativeTarget "LQGPhotoKitTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +521,7 @@
 				16A1DBD01EA39597003C5F95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16A1DBD11EA39597003C5F95 /* Build configuration list for PBXNativeTarget "LQGPhotoKitUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				16A1DBD31EA39597003C5F95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
