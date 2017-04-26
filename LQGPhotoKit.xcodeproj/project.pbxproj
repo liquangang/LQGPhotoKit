@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07F0F09E1EAF563500E0CED4 /* LQGWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */; };
+		07F0F0A21EAF614300E0CED4 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */; };
+		07F0F0A31EAF614300E0CED4 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */; };
+		07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */; };
 		16A1DBA31EA39597003C5F95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA21EA39597003C5F95 /* main.m */; };
 		16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA51EA39597003C5F95 /* AppDelegate.m */; };
 		16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA81EA39597003C5F95 /* ViewController.m */; };
@@ -15,6 +19,7 @@
 		16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A1DBAF1EA39597003C5F95 /* LaunchScreen.storyboard */; };
 		16A1DBBC1EA39597003C5F95 /* LQGPhotoKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBBB1EA39597003C5F95 /* LQGPhotoKitTests.m */; };
 		16A1DBC71EA39597003C5F95 /* LQGPhotoKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBC61EA39597003C5F95 /* LQGPhotoKitUITests.m */; };
+		A694B76DF0624E92AF2F5FB4 /* libPods-LQGPhotoKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6815EC39490EA4D27C83FFFE /* libPods-LQGPhotoKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07F0F09C1EAF563500E0CED4 /* LQGWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQGWaterFlowLayout.h; sourceTree = "<group>"; };
+		07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQGWaterFlowLayout.m; sourceTree = "<group>"; };
+		07F0F09F1EAF614300E0CED4 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
+		07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSecondCollectionViewCell.h; sourceTree = "<group>"; };
+		07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSecondCollectionViewCell.m; sourceTree = "<group>"; };
+		0F3DC1C389CCEAFFDA873D47 /* libPods-LQGPhotoKitUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKitUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A1DB9E1EA39597003C5F95 /* LQGPhotoKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LQGPhotoKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A1DBA21EA39597003C5F95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16A1DBA41EA39597003C5F95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +64,10 @@
 		16A1DBC21EA39597003C5F95 /* LQGPhotoKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LQGPhotoKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A1DBC61EA39597003C5F95 /* LQGPhotoKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQGPhotoKitUITests.m; sourceTree = "<group>"; };
 		16A1DBC81EA39597003C5F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6815EC39490EA4D27C83FFFE /* libPods-LQGPhotoKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71ED944DB6A67C4C488676DA /* Pods-LQGPhotoKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LQGPhotoKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LQGPhotoKit/Pods-LQGPhotoKit.debug.xcconfig"; sourceTree = "<group>"; };
+		DB282AD40083FC652E77FCE7 /* Pods-LQGPhotoKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LQGPhotoKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LQGPhotoKit/Pods-LQGPhotoKit.release.xcconfig"; sourceTree = "<group>"; };
+		FBF67D8CE5FFED319AC875FD /* libPods-LQGPhotoKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A694B76DF0624E92AF2F5FB4 /* libPods-LQGPhotoKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +99,14 @@
 		16A1DB951EA39597003C5F95 = {
 			isa = PBXGroup;
 			children = (
+				07F0F09C1EAF563500E0CED4 /* LQGWaterFlowLayout.h */,
+				07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */,
 				16A1DBA01EA39597003C5F95 /* LQGPhotoKit */,
 				16A1DBBA1EA39597003C5F95 /* LQGPhotoKitTests */,
 				16A1DBC51EA39597003C5F95 /* LQGPhotoKitUITests */,
 				16A1DB9F1EA39597003C5F95 /* Products */,
+				8E087C114FCD5413D50ED36C /* Pods */,
+				B6A98D68867B06FD53B96011 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +132,11 @@
 				16A1DBAF1EA39597003C5F95 /* LaunchScreen.storyboard */,
 				16A1DBB21EA39597003C5F95 /* Info.plist */,
 				16A1DBA11EA39597003C5F95 /* Supporting Files */,
+				07F0F09F1EAF614300E0CED4 /* TestCollectionViewCell.h */,
+				07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */,
+				07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */,
+				07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */,
+				07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */,
 			);
 			path = LQGPhotoKit;
 			sourceTree = "<group>";
@@ -140,6 +167,25 @@
 			path = LQGPhotoKitUITests;
 			sourceTree = "<group>";
 		};
+		8E087C114FCD5413D50ED36C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71ED944DB6A67C4C488676DA /* Pods-LQGPhotoKit.debug.xcconfig */,
+				DB282AD40083FC652E77FCE7 /* Pods-LQGPhotoKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B6A98D68867B06FD53B96011 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6815EC39490EA4D27C83FFFE /* libPods-LQGPhotoKit.a */,
+				FBF67D8CE5FFED319AC875FD /* libPods-LQGPhotoKitTests.a */,
+				0F3DC1C389CCEAFFDA873D47 /* libPods-LQGPhotoKitUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16A1DBCB1EA39597003C5F95 /* Build configuration list for PBXNativeTarget "LQGPhotoKit" */;
 			buildPhases = (
+				D90394729C2B57696E92A8CC /* [CP] Check Pods Manifest.lock */,
 				16A1DB9A1EA39597003C5F95 /* Sources */,
 				16A1DB9B1EA39597003C5F95 /* Frameworks */,
 				16A1DB9C1EA39597003C5F95 /* Resources */,
+				166D8C00A7C4FCC6EFA6B47B /* [CP] Embed Pods Frameworks */,
+				D89D9CD22B1EC3B8C719518D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +298,7 @@
 			files = (
 				16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */,
 				16A1DBAE1EA39597003C5F95 /* Assets.xcassets in Resources */,
+				07F0F0A31EAF614300E0CED4 /* TestCollectionViewCell.xib in Resources */,
 				16A1DBAC1EA39597003C5F95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,14 +319,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		166D8C00A7C4FCC6EFA6B47B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LQGPhotoKit/Pods-LQGPhotoKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D89D9CD22B1EC3B8C719518D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LQGPhotoKit/Pods-LQGPhotoKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D90394729C2B57696E92A8CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16A1DB9A1EA39597003C5F95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F0F09E1EAF563500E0CED4 /* LQGWaterFlowLayout.m in Sources */,
 				16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */,
 				16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */,
 				16A1DBA31EA39597003C5F95 /* main.m in Sources */,
+				07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */,
+				07F0F0A21EAF614300E0CED4 /* TestCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +526,7 @@
 		};
 		16A1DBCC1EA39597003C5F95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71ED944DB6A67C4C488676DA /* Pods-LQGPhotoKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RYWQLEHRAM;
@@ -437,6 +539,7 @@
 		};
 		16A1DBCD1EA39597003C5F95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB282AD40083FC652E77FCE7 /* Pods-LQGPhotoKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RYWQLEHRAM;

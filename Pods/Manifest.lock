@@ -1,0 +1,15 @@
+PODS:
+  - JPFPSStatus (0.0.2)
+  - MJRefresh (3.1.12)
+
+DEPENDENCIES:
+  - JPFPSStatus (~> 0.0.2)
+  - MJRefresh
+
+SPEC CHECKSUMS:
+  JPFPSStatus: 11de6027b4cbebfeee0c939dfe08f5ec124a0965
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+
+PODFILE CHECKSUM: 43eff6ce1f0f2ab359e5f1a17b7377a97fb4d028
+
+COCOAPODS: 1.1.1
