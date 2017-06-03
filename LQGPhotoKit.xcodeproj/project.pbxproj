@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */; };
 		07F0F09E1EAF563500E0CED4 /* LQGWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */; };
-		07F0F0A21EAF614300E0CED4 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */; };
-		07F0F0A31EAF614300E0CED4 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */; };
 		07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */; };
 		16A1DBA31EA39597003C5F95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA21EA39597003C5F95 /* main.m */; };
 		16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA51EA39597003C5F95 /* AppDelegate.m */; };
@@ -40,11 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0737D99F1EB2E00600F3DF19 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
+		0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		07F0F09C1EAF563500E0CED4 /* LQGWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQGWaterFlowLayout.h; sourceTree = "<group>"; };
 		07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQGWaterFlowLayout.m; sourceTree = "<group>"; };
-		07F0F09F1EAF614300E0CED4 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
-		07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
-		07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSecondCollectionViewCell.h; sourceTree = "<group>"; };
 		07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSecondCollectionViewCell.m; sourceTree = "<group>"; };
 		0F3DC1C389CCEAFFDA873D47 /* libPods-LQGPhotoKitUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKitUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +121,7 @@
 		16A1DBA01EA39597003C5F95 /* LQGPhotoKit */ = {
 			isa = PBXGroup;
 			children = (
+				16A1DBA11EA39597003C5F95 /* Supporting Files */,
 				16A1DBA41EA39597003C5F95 /* AppDelegate.h */,
 				16A1DBA51EA39597003C5F95 /* AppDelegate.m */,
 				16A1DBA71EA39597003C5F95 /* ViewController.h */,
@@ -131,12 +130,10 @@
 				16A1DBAD1EA39597003C5F95 /* Assets.xcassets */,
 				16A1DBAF1EA39597003C5F95 /* LaunchScreen.storyboard */,
 				16A1DBB21EA39597003C5F95 /* Info.plist */,
-				16A1DBA11EA39597003C5F95 /* Supporting Files */,
-				07F0F09F1EAF614300E0CED4 /* TestCollectionViewCell.h */,
-				07F0F0A01EAF614300E0CED4 /* TestCollectionViewCell.m */,
-				07F0F0A11EAF614300E0CED4 /* TestCollectionViewCell.xib */,
 				07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */,
 				07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */,
+				0737D99F1EB2E00600F3DF19 /* TakePhotoViewController.h */,
+				0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */,
 			);
 			path = LQGPhotoKit;
 			sourceTree = "<group>";
@@ -298,7 +295,6 @@
 			files = (
 				16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */,
 				16A1DBAE1EA39597003C5F95 /* Assets.xcassets in Resources */,
-				07F0F0A31EAF614300E0CED4 /* TestCollectionViewCell.xib in Resources */,
 				16A1DBAC1EA39597003C5F95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,8 +372,8 @@
 				16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */,
 				16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */,
 				16A1DBA31EA39597003C5F95 /* main.m in Sources */,
+				0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */,
 				07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */,
-				07F0F0A21EAF614300E0CED4 /* TestCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +528,7 @@
 				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.LQGPhotoKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -545,7 +541,7 @@
 				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.LQGPhotoKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

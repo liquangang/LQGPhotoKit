@@ -12,13 +12,12 @@
 
 #import "ViewController.h"
 #import "LQGWaterFlowLayout.h"
-#import "TestCollectionViewCell.h"
 #import <MJRefresh.h>
 #import "TestSecondCollectionViewCell.h"
 
 static NSString *itemResuableStr = @"TestSecondCollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
-static NSInteger loadCount = 1000;
+static NSInteger loadCount = 10;
 
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -35,7 +34,6 @@ static NSInteger loadCount = 1000;
     // Do any additional setup after loading the view, typically from a nib.
     self.sectionCount = loadCount;
     [self.view addSubview:self.selectImageCollectionView];
-    [self.selectImageCollectionView reloadData];
 }
 
 
@@ -93,7 +91,7 @@ static NSInteger loadCount = 1000;
         [tempCollectionView registerClass:[TestSecondCollectionViewCell class] forCellWithReuseIdentifier:itemResuableStr];
         [tempCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerResuableStr];
         [tempCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:headerResuableStr];
-        
+       
         __weak typeof(self) weakSelf = self;
         tempCollectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -110,7 +108,7 @@ static NSInteger loadCount = 1000;
 
 - (LQGWaterFlowLayout *)waterLayout{
     if (!_waterLayout) {
-        LQGWaterFlowLayout *tempWaterLayout = [[LQGWaterFlowLayout alloc] initWithColumnsCount:3 rowMargin:0 columnsMargin:0 sectionEdgeInset:UIEdgeInsetsMake(0, 0, 0, 0) getItemSize:^CGFloat(NSIndexPath *itemIndex) {
+        LQGWaterFlowLayout *tempWaterLayout = [[LQGWaterFlowLayout alloc] initWithColumnsCount:4 rowMargin:0 columnsMargin:0 sectionEdgeInset:UIEdgeInsetsMake(0, 0, 0, 0) getItemSize:^CGFloat(NSIndexPath *itemIndex) {
             return 100;
         } getHeaderSize:^CGSize(NSIndexPath *headerIndex) {
             return CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), 100);
