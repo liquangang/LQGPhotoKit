@@ -17,9 +17,13 @@
 
 static NSString *itemResuableStr = @"TestSecondCollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
-static NSInteger loadCount = 10;
+static NSInteger loadCount = 36;
 
-@interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ViewController ()
+<
+    UICollectionViewDelegate,
+    UICollectionViewDataSource
+>
 
 @property (nonatomic, strong) UICollectionView *selectImageCollectionView;
 @property (nonatomic, strong) LQGWaterFlowLayout *waterLayout;

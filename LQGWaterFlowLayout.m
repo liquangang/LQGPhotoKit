@@ -16,10 +16,10 @@ typedef NS_ENUM(NSInteger, SectionStatus){
 };
 
 @interface SectionModel : NSObject
-@property (nonatomic, assign) SectionStatus sectionStatus;
-@property (nonatomic, assign) NSUInteger lastNum;
+@property (nonatomic, assign) SectionStatus sectionStatus;          //该组的数据变更状态
+@property (nonatomic, assign) NSUInteger lastNum;                   //该组的item的个数
 @property (nonatomic, strong) NSMutableArray *sectionAttriMuArray;  //该组对应的所有布局属性
-@property (nonatomic, strong) NSMutableArray *maxYMuArray;  //该组最下面一行的最大Y值
+@property (nonatomic, strong) NSMutableArray *maxYMuArray;          //该组最下面一行的最大Y值
 @end
 
 @implementation SectionModel
@@ -166,7 +166,9 @@ typedef NS_ENUM(NSInteger, SectionStatus){
         }
         
         //添加当前组的新增的item的布局属性
-        for (NSInteger j = tempModel.sectionStatus == littleUpdate ? tempModel.lastNum: 0; j < [self.collectionView numberOfItemsInSection:i]; j++) {
+        for (NSInteger j = ((tempModel.sectionStatus == littleUpdate) ? tempModel.lastNum : 0);
+             j < [self.collectionView numberOfItemsInSection:i];
+             j++) {
             NSIndexPath *itemIndexPath = [NSIndexPath indexPathForItem:j inSection:i];
             UICollectionViewLayoutAttributes *itemAttri = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
             [tempModel.sectionAttriMuArray addObject:itemAttri];
@@ -263,18 +265,12 @@ typedef NS_ENUM(NSInteger, SectionStatus){
         
         if (tempModel.lastNum == 0 && [self.collectionView numberOfItemsInSection:i] > 0) {
             tempModel.sectionStatus = allUpdate;
-            continue;
-        }
-        
-        if (tempModel.lastNum == [self.collectionView numberOfItemsInSection:i]) {
+        }else if (tempModel.lastNum == [self.collectionView numberOfItemsInSection:i]) {
             tempModel.sectionStatus = withOutUpdate;
-            continue;
+        }else if (tempModel.lastNum < [self.collectionView numberOfItemsInSection:i]) {
+            tempModel.sectionStatus = littleUpdate;
         }
         
-        if (tempModel.lastNum < [self.collectionView numberOfItemsInSection:i]) {
-            tempModel.sectionStatus = littleUpdate;
-            continue;
-        }
     }
 }
 
