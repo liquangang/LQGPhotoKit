@@ -9,8 +9,9 @@
 
 #import "LQGWaterFlowLayout.h"
 
+//每组的数据变更状态标识
 typedef NS_ENUM(NSInteger, SectionStatus){
-    allUpdate,  //全部重新计算或者从头开始计算
+    allUpdate,      //全部重新计算或者从头开始计算
     littleUpdate,   //计算新增item和footer
     withOutUpdate   //不需要计算
 };
@@ -42,37 +43,19 @@ typedef NS_ENUM(NSInteger, SectionStatus){
 
 @interface LQGWaterFlowLayout()
 
-//存储每列的最大y值
-@property (nonatomic, strong) NSMutableArray *maxColumnYMuArray;
-//存储布局属性
-@property (nonatomic, strong) NSMutableArray *attrsMuArray;
-/** 列数*/
-@property (nonatomic, assign) NSInteger columnsCount;
-/** 行距*/
-@property (nonatomic, assign) CGFloat rowMargin;
-/** 列距*/
-@property (nonatomic, assign) CGFloat columnMargin;
-/** 每组的间距*/
-@property (nonatomic, assign) UIEdgeInsets sectionEdgeInset;
-/** item的宽度*/
-@property (nonatomic, assign) CGFloat itemWidth;
-//存储每个组上次的信息
-@property (nonatomic, strong) NSMutableArray *sectionInfoMuArray;
+@property (nonatomic, strong) NSMutableArray *maxColumnYMuArray;            /** 存储每列的最大y值*/
+@property (nonatomic, strong) NSMutableArray *attrsMuArray;                 /** 存储布局属性*/
+@property (nonatomic, assign) NSInteger columnsCount;                       /** 列数*/
+@property (nonatomic, assign) CGFloat rowMargin;                            /** 行距*/
+@property (nonatomic, assign) CGFloat columnMargin;                         /** 列距*/
+@property (nonatomic, assign) UIEdgeInsets sectionEdgeInset;                /** 每组的间距*/
+@property (nonatomic, assign) CGFloat itemWidth;                            /** item的宽度*/
+@property (nonatomic, strong) NSMutableArray *sectionInfoMuArray;           /** 存储每个组上次的信息*/
 
-/**
- * 获得item高度（必须实现）
- */
-@property (nonatomic, copy) CGFloat(^itemHeightBlock)(NSIndexPath *itemIndex);
 
-/**
- *  获得头视图高度（必须实现）
- */
-@property (nonatomic, copy) CGSize(^headerSizeBlock)(NSIndexPath *headerIndex);
-
-/**
- *  获得尾视图高度（必须实现）
- */
-@property (nonatomic, copy) CGSize(^footerSizeBlock)(NSIndexPath *footerIndex);
+@property (nonatomic, copy) CGFloat(^itemHeightBlock)(NSIndexPath *itemIndex);          /** 获得item高度（必须实现）*/
+@property (nonatomic, copy) CGSize(^headerSizeBlock)(NSIndexPath *headerIndex);         /** 获得头视图高度（必须实现）*/
+@property (nonatomic, copy) CGSize(^footerSizeBlock)(NSIndexPath *footerIndex);         /** 获得尾视图高度（必须实现）*/
 
 @end
 
@@ -145,17 +128,20 @@ typedef NS_ENUM(NSInteger, SectionStatus){
     for (NSInteger i = 0; i < self.collectionView.numberOfSections; i++) {
         SectionModel *tempModel = self.sectionInfoMuArray[i];
         
+        //如果该组不需要更新，需要更新最大Y值数组为该组的footer的Y值
         if (tempModel.sectionStatus == withOutUpdate) {
             UICollectionViewLayoutAttributes *footerAttri = tempModel.sectionAttriMuArray.lastObject;
             [self updateMaxY:CGRectGetMaxY(footerAttri.frame)];
             continue;
         }
         
+        //如果该组只需要部分更新，需要移除footer，并设置最大Y值数组
         if (tempModel.sectionStatus == littleUpdate) {
             [tempModel.sectionAttriMuArray removeLastObject];
             [self setMaxY:i];
         }
         
+        //如果该组需要全部更新，需要计算header
         if (tempModel.sectionStatus == allUpdate) {
             [tempModel.sectionAttriMuArray removeAllObjects];
             
@@ -183,6 +169,7 @@ typedef NS_ENUM(NSInteger, SectionStatus){
         tempModel.lastNum = [self.collectionView numberOfItemsInSection:i];
     }
     
+    //合并布局属性
     [self mergeWholeArr];
 }
 
@@ -232,7 +219,7 @@ typedef NS_ENUM(NSInteger, SectionStatus){
  *  获得尾部视图的布局属性
  */
 - (UICollectionViewLayoutAttributes *)attributesForFooterAtIndexPath:(NSIndexPath *)indexPath{
-    [self setSectionMaxY:indexPath.item];
+    [self setSectionMaxY:indexPath.section];
     UICollectionViewLayoutAttributes *footerAttri = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter withIndexPath:indexPath];
     CGSize footerSize = self.footerSizeBlock(indexPath);
     footerAttri.frame = CGRectMake(0, [self getMaxY] + self.sectionEdgeInset.bottom, footerSize.width, footerSize.height);
@@ -249,7 +236,7 @@ typedef NS_ENUM(NSInteger, SectionStatus){
     
     for (int i = 0; i < self.collectionView.numberOfSections; i++) {
         
-        if (self.sectionInfoMuArray[i] == nil) {
+        if (self.sectionInfoMuArray.count < self.collectionView.numberOfSections) {
             [self.sectionInfoMuArray addObject:[SectionModel new]];
         }
         
@@ -299,11 +286,8 @@ typedef NS_ENUM(NSInteger, SectionStatus){
 - (void)setMaxY:(NSInteger)section{
     SectionModel *tempModel = self.sectionInfoMuArray[section];
     
-    for (int i = 0; i < self.collectionView.numberOfSections; i++) {
-        
-        if (tempModel.sectionStatus == littleUpdate) {
-            [self.maxColumnYMuArray replaceObjectAtIndex:i withObject:tempModel.maxYMuArray[i]];
-        }
+    for (int i = 0; i < self.columnsCount; i++) {
+        [self.maxColumnYMuArray replaceObjectAtIndex:i withObject:tempModel.maxYMuArray[i]];
     }
 }
 

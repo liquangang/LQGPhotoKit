@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '444CE65270D41578B4D98EE42C457DD1'
-               BlueprintName = 'Pods-LQGPhotoKit'
+               BlueprintIdentifier = 'A494F5517D8DC3521852E0388FF1C88D'
+               BlueprintName = 'LQGWaterLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-LQGPhotoKit.a'>
+               BuildableName = 'libLQGWaterLayout.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

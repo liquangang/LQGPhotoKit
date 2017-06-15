@@ -1,15 +1,18 @@
 PODS:
   - JPFPSStatus (0.0.2)
+  - LQGWaterLayout (1.0.1)
   - MJRefresh (3.1.12)
 
 DEPENDENCIES:
   - JPFPSStatus (~> 0.0.2)
+  - LQGWaterLayout
   - MJRefresh
 
 SPEC CHECKSUMS:
   JPFPSStatus: 11de6027b4cbebfeee0c939dfe08f5ec124a0965
+  LQGWaterLayout: bcd9352069c497bd3ebcfe155cffa894aa66d329
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
 
-PODFILE CHECKSUM: 43eff6ce1f0f2ab359e5f1a17b7377a97fb4d028
+PODFILE CHECKSUM: b90b0a17f3fc2df66ec652b8dc44be89ee02b48f
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1

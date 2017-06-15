@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LQGWaterLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DFA3C4E8B257674C2937BC8B48DB113</key>
+		<key>444CE65270D41578B4D98EE42C457DD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A494F5517D8DC3521852E0388FF1C88D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -17,7 +17,7 @@
 
 static NSString *itemResuableStr = @"TestSecondCollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
-static NSInteger loadCount = 36;
+static NSInteger loadCount = 3;
 
 @interface ViewController ()
 <
@@ -28,6 +28,7 @@ static NSInteger loadCount = 36;
 @property (nonatomic, strong) UICollectionView *selectImageCollectionView;
 @property (nonatomic, strong) LQGWaterFlowLayout *waterLayout;
 @property (nonatomic, assign) NSUInteger sectionCount;
+@property (nonatomic, strong) NSMutableArray *dataSourceMuArray;
 
 @end
 
@@ -36,7 +37,6 @@ static NSInteger loadCount = 36;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.sectionCount = loadCount;
     [self.view addSubview:self.selectImageCollectionView];
 }
 
@@ -49,11 +49,11 @@ static NSInteger loadCount = 36;
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return self.dataSourceMuArray.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.sectionCount;
+    return [self.dataSourceMuArray[section] count];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -70,7 +70,7 @@ static NSInteger loadCount = 36;
         return header;
     }else{
         UICollectionReusableView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:headerResuableStr forIndexPath:indexPath];
-        footer.backgroundColor = [UIColor redColor];
+        footer.backgroundColor = [UIColor greenColor];
         return footer;
     }
 }
@@ -82,6 +82,47 @@ static NSInteger loadCount = 36;
  */
 + (int)getRandomNumber:(int)from to:(int)to{
     return (int)(from + (arc4random() % ((to) - (from) + 1)));
+}
+
+/** 增加测试元素*/
+- (void)addTestObj{
+    
+    //每组都在增加的情况
+//    for (NSInteger i = 0; i < self.dataSourceMuArray.count; i++) {
+//    
+//        NSMutableArray *tempArray = self.dataSourceMuArray[i];
+//        
+//        int tempNum = [ViewController getRandomNumber:4 to:60];
+//        NSUInteger arrCount = tempArray.count;
+//        
+//        for (NSUInteger j = arrCount; j < arrCount + tempNum; j++) {
+//            [tempArray addObject:@(1)];
+//        }
+//    }
+    
+    //增加组的情况
+//    NSInteger sectionCount = self.dataSourceMuArray.count;
+//    
+//    for (NSInteger i = sectionCount; i < sectionCount + 2; i++) {
+//        NSMutableArray *tempArray = [NSMutableArray new];
+//        
+//        int tempNum = [ViewController getRandomNumber:4 to:60];
+//        
+//        for (int j = 0; j < tempNum; j++) {
+//            [tempArray addObject:@(1)];
+//        }
+//        
+//        [self.dataSourceMuArray addObject:tempArray];
+//    }
+    
+    //只有一组，每次增加item的情况
+    NSMutableArray *tempArray = self.dataSourceMuArray[0];
+    
+    int tempNum = [ViewController getRandomNumber:4 to:60];
+    
+    for (int j = 0; j < tempNum; j++) {
+        [tempArray addObject:@(1)];
+    }
 }
 
 #pragma mark - getter
@@ -97,10 +138,12 @@ static NSInteger loadCount = 36;
         [tempCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:headerResuableStr];
        
         __weak typeof(self) weakSelf = self;
+        
         tempCollectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                weakSelf.sectionCount += loadCount;
                 [tempCollectionView.mj_footer endRefreshing];
+                
+                [weakSelf addTestObj];
                 [tempCollectionView reloadData];
             });
         }];
@@ -112,7 +155,7 @@ static NSInteger loadCount = 36;
 
 - (LQGWaterFlowLayout *)waterLayout{
     if (!_waterLayout) {
-        LQGWaterFlowLayout *tempWaterLayout = [[LQGWaterFlowLayout alloc] initWithColumnsCount:4 rowMargin:0 columnsMargin:0 sectionEdgeInset:UIEdgeInsetsMake(0, 0, 0, 0) getItemSize:^CGFloat(NSIndexPath *itemIndex) {
+        LQGWaterFlowLayout *tempWaterLayout = [[LQGWaterFlowLayout alloc] initWithColumnsCount:0 rowMargin:0 columnsMargin:0 sectionEdgeInset:UIEdgeInsetsMake(0, 0, 0, 0) getItemSize:^CGFloat(NSIndexPath *itemIndex) {
             return 100;
         } getHeaderSize:^CGSize(NSIndexPath *headerIndex) {
             return CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), 100);
@@ -130,6 +173,28 @@ static NSInteger loadCount = 36;
     tempFlowLayout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 100);
     tempFlowLayout.footerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 100);
     return tempFlowLayout;
+}
+
+- (NSMutableArray *)dataSourceMuArray{
+    if (!_dataSourceMuArray) {
+        NSMutableArray *tempMuArray = [NSMutableArray new];
+        
+        
+     
+            NSMutableArray *tempArray = [NSMutableArray new];
+            
+            int tempNum = [ViewController getRandomNumber:4 to:60];
+            
+            for (int j = 0; j < tempNum; j++) {
+                [tempArray addObject:@(1)];
+            }
+            
+            [tempMuArray addObject:tempArray];
+       
+        
+        _dataSourceMuArray = tempMuArray;
+    }
+    return _dataSourceMuArray;
 }
 
 @end

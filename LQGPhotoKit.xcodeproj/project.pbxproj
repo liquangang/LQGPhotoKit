@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */; };
-		07F0F09E1EAF563500E0CED4 /* LQGWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */; };
 		07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */; };
 		16A1DBA31EA39597003C5F95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA21EA39597003C5F95 /* main.m */; };
 		16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA51EA39597003C5F95 /* AppDelegate.m */; };
@@ -41,8 +40,6 @@
 /* Begin PBXFileReference section */
 		0737D99F1EB2E00600F3DF19 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
 		0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
-		07F0F09C1EAF563500E0CED4 /* LQGWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQGWaterFlowLayout.h; sourceTree = "<group>"; };
-		07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQGWaterFlowLayout.m; sourceTree = "<group>"; };
 		07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSecondCollectionViewCell.h; sourceTree = "<group>"; };
 		07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSecondCollectionViewCell.m; sourceTree = "<group>"; };
 		0F3DC1C389CCEAFFDA873D47 /* libPods-LQGPhotoKitUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKitUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,8 +94,6 @@
 		16A1DB951EA39597003C5F95 = {
 			isa = PBXGroup;
 			children = (
-				07F0F09C1EAF563500E0CED4 /* LQGWaterFlowLayout.h */,
-				07F0F09D1EAF563500E0CED4 /* LQGWaterFlowLayout.m */,
 				16A1DBA01EA39597003C5F95 /* LQGPhotoKit */,
 				16A1DBBA1EA39597003C5F95 /* LQGPhotoKitTests */,
 				16A1DBC51EA39597003C5F95 /* LQGPhotoKitUITests */,
@@ -358,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -368,7 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F0F09E1EAF563500E0CED4 /* LQGWaterFlowLayout.m in Sources */,
 				16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */,
 				16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */,
 				16A1DBA31EA39597003C5F95 /* main.m in Sources */,

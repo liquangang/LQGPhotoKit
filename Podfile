@@ -2,7 +2,7 @@
 platform :ios, '9.0'
 
 target 'LQGPhotoKit' do
-    #pod 'LQGWaterLayout'
+    pod 'LQGWaterLayout'
     pod 'MJRefresh'
     pod 'JPFPSStatus', '~> 0.0.2'
 end
