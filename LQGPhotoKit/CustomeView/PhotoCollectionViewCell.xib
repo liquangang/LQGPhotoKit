@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PhotoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="266" height="223"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="266" height="223"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sha-Ra-Xse">
+                        <rect key="frame" x="1" y="1" width="264" height="221"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Sha-Ra-Xse" secondAttribute="trailing" constant="1" id="9OF-bd-U9Y"/>
+                <constraint firstAttribute="bottom" secondItem="Sha-Ra-Xse" secondAttribute="bottom" constant="1" id="Mch-wI-qxU"/>
+                <constraint firstItem="Sha-Ra-Xse" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="Uyr-zv-9Kr"/>
+                <constraint firstItem="Sha-Ra-Xse" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="f8r-w4-SLU"/>
+            </constraints>
+            <size key="customSize" width="266" height="223"/>
+            <connections>
+                <outlet property="imageView" destination="Sha-Ra-Xse" id="Bah-xR-FCu"/>
+            </connections>
+            <point key="canvasLocation" x="-265" y="-86"/>
+        </collectionViewCell>
+    </objects>
+</document>

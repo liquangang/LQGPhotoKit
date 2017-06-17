@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Photos/Photos.h>
 
 @interface AssetModel : NSObject
+
+@property (nonatomic, strong) PHAsset *asset;   //对应的资源对象
+
+@property (nonatomic, strong) UIImage *thumbnail;   //对应的缩略图
+
+@property (nonatomic, strong) UIImage *previewImage;    //预览图
+
+- (instancetype)initWithAsset:(PHAsset *)asset;
 
 @end

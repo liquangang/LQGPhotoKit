@@ -16,6 +16,14 @@
 		07D54ADA1EF28B970036BED6 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AD91EF28B970036BED6 /* AlbumModel.m */; };
 		07D54ADD1EF28BC00036BED6 /* AssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54ADC1EF28BC00036BED6 /* AssetModel.m */; };
 		07D54AE01EF28BE70036BED6 /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54ADF1EF28BE70036BED6 /* PhotoManager.m */; };
+		07D54AEF1EF37A170036BED6 /* PhotoHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AED1EF37A170036BED6 /* PhotoHomeTableViewCell.m */; };
+		07D54AF01EF37A170036BED6 /* PhotoHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D54AEE1EF37A170036BED6 /* PhotoHomeTableViewCell.xib */; };
+		07D54AF31EF38B350036BED6 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AF21EF38B350036BED6 /* PhotoViewController.m */; };
+		07D54B241EF3D96A0036BED6 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54B221EF3D96A0036BED6 /* PhotoCollectionViewCell.m */; };
+		07D54B251EF3D96A0036BED6 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D54B231EF3D96A0036BED6 /* PhotoCollectionViewCell.xib */; };
+		07D54B281EF3DE9F0036BED6 /* PhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54B271EF3DE9F0036BED6 /* PhotoPreviewViewController.m */; };
+		07D54B2C1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54B2A1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m */; };
+		07D54B2D1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D54B2B1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib */; };
 		07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */; };
 		16A1DBA31EA39597003C5F95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA21EA39597003C5F95 /* main.m */; };
 		16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA51EA39597003C5F95 /* AppDelegate.m */; };
@@ -64,6 +72,19 @@
 		07D54ADC1EF28BC00036BED6 /* AssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetModel.m; sourceTree = "<group>"; };
 		07D54ADE1EF28BE70036BED6 /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoManager.h; sourceTree = "<group>"; };
 		07D54ADF1EF28BE70036BED6 /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoManager.m; sourceTree = "<group>"; };
+		07D54AEC1EF37A170036BED6 /* PhotoHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoHomeTableViewCell.h; sourceTree = "<group>"; };
+		07D54AED1EF37A170036BED6 /* PhotoHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoHomeTableViewCell.m; sourceTree = "<group>"; };
+		07D54AEE1EF37A170036BED6 /* PhotoHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoHomeTableViewCell.xib; sourceTree = "<group>"; };
+		07D54AF11EF38B350036BED6 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		07D54AF21EF38B350036BED6 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		07D54B211EF3D96A0036BED6 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		07D54B221EF3D96A0036BED6 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		07D54B231EF3D96A0036BED6 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		07D54B261EF3DE9F0036BED6 /* PhotoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreviewViewController.h; sourceTree = "<group>"; };
+		07D54B271EF3DE9F0036BED6 /* PhotoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreviewViewController.m; sourceTree = "<group>"; };
+		07D54B291EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPreviewCollectionViewCell.h; sourceTree = "<group>"; };
+		07D54B2A1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPreviewCollectionViewCell.m; sourceTree = "<group>"; };
+		07D54B2B1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		07F0F0A41EB079B500E0CED4 /* TestSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSecondCollectionViewCell.h; sourceTree = "<group>"; };
 		07F0F0A51EB079B500E0CED4 /* TestSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSecondCollectionViewCell.m; sourceTree = "<group>"; };
 		0F3DC1C389CCEAFFDA873D47 /* libPods-LQGPhotoKitUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LQGPhotoKitUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +156,15 @@
 			children = (
 				07D54AD01EF273070036BED6 /* ControlHeaderView.h */,
 				07D54AD11EF273070036BED6 /* ControlHeaderView.m */,
+				07D54AEC1EF37A170036BED6 /* PhotoHomeTableViewCell.h */,
+				07D54AED1EF37A170036BED6 /* PhotoHomeTableViewCell.m */,
+				07D54AEE1EF37A170036BED6 /* PhotoHomeTableViewCell.xib */,
+				07D54B211EF3D96A0036BED6 /* PhotoCollectionViewCell.h */,
+				07D54B221EF3D96A0036BED6 /* PhotoCollectionViewCell.m */,
+				07D54B231EF3D96A0036BED6 /* PhotoCollectionViewCell.xib */,
+				07D54B291EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.h */,
+				07D54B2A1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m */,
+				07D54B2B1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib */,
 			);
 			path = CustomeView;
 			sourceTree = "<group>";
@@ -144,6 +174,10 @@
 			children = (
 				07D54AD41EF278510036BED6 /* PhotoHomeViewController.h */,
 				07D54AD51EF278510036BED6 /* PhotoHomeViewController.m */,
+				07D54AF11EF38B350036BED6 /* PhotoViewController.h */,
+				07D54AF21EF38B350036BED6 /* PhotoViewController.m */,
+				07D54B261EF3DE9F0036BED6 /* PhotoPreviewViewController.h */,
+				07D54B271EF3DE9F0036BED6 /* PhotoPreviewViewController.m */,
 			);
 			path = CustomeVc;
 			sourceTree = "<group>";
@@ -360,7 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D54B2D1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib in Resources */,
 				16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */,
+				07D54B251EF3D96A0036BED6 /* PhotoCollectionViewCell.xib in Resources */,
+				07D54AF01EF37A170036BED6 /* PhotoHomeTableViewCell.xib in Resources */,
 				16A1DBAE1EA39597003C5F95 /* Assets.xcassets in Resources */,
 				16A1DBAC1EA39597003C5F95 /* Main.storyboard in Resources */,
 			);
@@ -438,14 +475,19 @@
 				07D54AD61EF278510036BED6 /* PhotoHomeViewController.m in Sources */,
 				16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */,
 				07D54AD21EF273070036BED6 /* ControlHeaderView.m in Sources */,
+				07D54AEF1EF37A170036BED6 /* PhotoHomeTableViewCell.m in Sources */,
 				16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */,
+				07D54B241EF3D96A0036BED6 /* PhotoCollectionViewCell.m in Sources */,
 				07D54ADD1EF28BC00036BED6 /* AssetModel.m in Sources */,
 				16A1DBA31EA39597003C5F95 /* main.m in Sources */,
+				07D54B2C1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m in Sources */,
 				0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */,
 				07D54AAB1EF265400036BED6 /* UIApplication+AuthorityManager.m in Sources */,
+				07D54AF31EF38B350036BED6 /* PhotoViewController.m in Sources */,
 				07D54ADA1EF28B970036BED6 /* AlbumModel.m in Sources */,
 				07D54AC11EF26C7E0036BED6 /* UIViewController+AuthorityManager.m in Sources */,
 				07D54AE01EF28BE70036BED6 /* PhotoManager.m in Sources */,
+				07D54B281EF3DE9F0036BED6 /* PhotoPreviewViewController.m in Sources */,
 				07D54AC91EF26DEB0036BED6 /* PhotoKitHeader.m in Sources */,
 				07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */,
 			);
@@ -602,7 +644,7 @@
 				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.photoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -615,7 +657,7 @@
 				DEVELOPMENT_TEAM = RYWQLEHRAM;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.photoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

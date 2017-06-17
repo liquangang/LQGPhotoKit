@@ -35,6 +35,8 @@
             [[PhotoManager shareInstance] getThumbnail:tempAsset completed:^(UIImage *image) {
                 tempImage = image;
             }];
+        }else{
+            tempImage = [UIImage imageNamed:@"blank"];
         }
         
         _thumbnail = tempImage;

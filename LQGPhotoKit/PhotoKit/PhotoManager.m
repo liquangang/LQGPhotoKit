@@ -39,28 +39,10 @@ CREATESINGLETON(PhotoManager)
             
             PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
             
-            switch (assetCollection.assetCollectionSubtype) {
-                case PHAssetCollectionSubtypeSmartAlbumAllHidden:
-                    
-                    break;
-                    
-                case PHAssetCollectionSubtypeSmartAlbumUserLibrary: {
-                    
-                    PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:self.options];
-                    AlbumModel *tempModel = [[AlbumModel alloc] initWithFetchResult:fetchResult title:collection.localizedTitle];
-                    [tempMuArray addObject:tempModel];
-                    
-                }
-                    break;
-                default: {
-                    
-                    PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:self.options];
-                    AlbumModel *tempModel = [[AlbumModel alloc] initWithFetchResult:fetchResult title:collection.localizedTitle];
-                    [tempMuArray addObject:tempModel];
-                    
-                }
-                    break;
-            }
+            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:self.options];
+            AlbumModel *tempModel = [[AlbumModel alloc] initWithFetchResult:fetchResult title:collection.localizedTitle];
+            [tempMuArray addObject:tempModel];
+            
         }
     }
     
@@ -72,10 +54,34 @@ CREATESINGLETON(PhotoManager)
  */
 - (void)getThumbnail:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
     
-    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(THUMBNAILWIdth, THUMBNAILWIdth) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        
+    [self getImage:CGSizeMake(SCREENSCALE * THUMBNAILWIdth, SCREENSCALE * THUMBNAILWIdth) asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (completed) {
             completed(result);
+        }
+    }];
+}
+
+/**
+ *  获取预览图
+ */
+- (void)getPreviewImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
+    [self getImage:CGSizeMake(SCREENSCALE * SCREEN_WIDTH, SCREENSCALE * SCREEN_WIDTH) asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if (completed) {
+            completed(result);
+        }
+    }];
+}
+
+#pragma mark - privateMethod
+
+/**
+ *  根据不同尺寸获取图片
+ */
+- (void)getImage:(CGSize)size asset:(PHAsset *)asset completed:(void(^)(UIImage * _Nullable result, NSDictionary * _Nullable info))completed{
+    [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(THUMBNAILWIdth * SCREENSCALE, THUMBNAILWIdth * SCREENSCALE) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        
+        if (completed) {
+            completed(result, info);
         }
     }];
 }

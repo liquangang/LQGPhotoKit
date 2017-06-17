@@ -26,4 +26,9 @@
  */
 - (void)getThumbnail:(PHAsset *)asset completed:(void(^)(UIImage *image))completed;
 
+/**
+ *  获取预览图
+ */
+- (void)getPreviewImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed;
+
 @end

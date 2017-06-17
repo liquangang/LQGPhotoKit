@@ -16,6 +16,8 @@
 
 #define THUMBNAILWIdth (SCREEN_WIDTH / 4)                       //缩略图默认宽度（由于是正方形，也是默认高度）
 
+#define SCREENSCALE [UIScreen mainScreen].scale                 //屏幕缩放比例
+
 /**
  *  创建单例
  */
@@ -40,5 +42,15 @@ return instance;\
 }
 
 @interface PhotoKitHeader : NSObject
+
+/**
+ *  主线程
+ */
++ (void)asyncMainQueue:(void(^)())mainQueueBlock;
+
+/**
+ *  后台异步多线程
+ */
++ (void)asyncBackgroundQueue:(void(^)())backgroundQueueBlock;
 
 @end

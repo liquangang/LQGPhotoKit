@@ -10,8 +10,12 @@
 #import "PhotoKitHeader.h"
 #import "PhotoManager.h"
 #import "AlbumModel.h"
+#import "PhotoHomeTableViewCell.h"
+#import "UIViewController+AuthorityManager.h"
+#import "PhotoViewController.h"
 
-static NSString *cellResuableID = @"UITableViewCell";
+static NSString *cellResuableID = @"PhotoHomeTableViewCell";
+static CGFloat cellHeight = 66;
 
 @interface PhotoHomeViewController ()
 <
@@ -21,10 +25,15 @@ static NSString *cellResuableID = @"UITableViewCell";
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSourceMuArray;
+@property (nonatomic, strong) NSMutableArray *selectAssetMuArray;
 
 @end
 
 @implementation PhotoHomeViewController
+
+- (void)dealloc{
+    NSLog(@"%@ dealloc", [self class]);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +60,7 @@ static NSString *cellResuableID = @"UITableViewCell";
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCREEN_WIDTH / 4;
+    return cellHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -59,14 +68,8 @@ static NSString *cellResuableID = @"UITableViewCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellResuableID];
-    cell.backgroundColor = [UIColor whiteColor];
-    cell.layer.borderWidth = 0.5;
-    cell.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    
-    AlbumModel *tempModel = self.dataSourceMuArray[indexPath.row];
-    cell.textLabel.text = tempModel.title;
-    cell.imageView.image = tempModel.thumbnail;
+    PhotoHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellResuableID];
+    cell.albumModel = self.dataSourceMuArray[indexPath.row];
     
     return cell;
 }
@@ -74,16 +77,23 @@ static NSString *cellResuableID = @"UITableViewCell";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [PhotoViewController pushToPhotoVc:self.navigationController albumModel:self.dataSourceMuArray[indexPath.row]];
 }
 
 #pragma mark - publicMethod
 
 + (void)presentSelectPhoto:(UIViewController *)viewController{
-    PhotoHomeViewController *tempVc = [PhotoHomeViewController new];
-    UINavigationController *tempNav = [[UINavigationController alloc] initWithRootViewController:tempVc];
-    
-    [viewController presentViewController:tempNav animated:YES completion:nil];
+    [viewController getPhotoAuthority:^(BOOL isCanUse) {
+        
+        if (isCanUse) {
+            [PhotoKitHeader asyncMainQueue:^{
+                PhotoHomeViewController *tempVc = [PhotoHomeViewController new];
+                UINavigationController *tempNav = [[UINavigationController alloc] initWithRootViewController:tempVc];
+                
+                [viewController presentViewController:tempNav animated:YES completion:nil];
+            }];
+        }
+    }];
 }
 
 #pragma mark - privateMethod
@@ -102,7 +112,7 @@ static NSString *cellResuableID = @"UITableViewCell";
         tempView.dataSource = self;
         tempView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tempView.backgroundColor = [UIColor clearColor];
-        [tempView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellResuableID];
+        [tempView registerNib:[UINib nibWithNibName:cellResuableID bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellResuableID];
         
         _tableView = tempView;
     }
