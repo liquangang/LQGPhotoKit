@@ -13,6 +13,7 @@
 
 @synthesize thumbnail = _thumbnail;
 @synthesize previewImage = _previewImage;
+@synthesize originalImage = _originalImage;
 
 #pragma mark - init
 
@@ -59,6 +60,23 @@
         _previewImage = tempImage;
     }
     return _previewImage;
+}
+
+- (UIImage *)originalImage{
+    if (!_originalImage) {
+        __block UIImage *tempImage;
+        
+        if (_asset) {
+            [[PhotoManager shareInstance] getOriginImage:_asset completed:^(UIImage *image) {
+                tempImage = image;
+            }];
+        }else{
+            tempImage = [UIImage imageNamed:@"blank"];
+        }
+        
+        _originalImage = tempImage;
+    }
+    return _originalImage;
 }
 
 @end

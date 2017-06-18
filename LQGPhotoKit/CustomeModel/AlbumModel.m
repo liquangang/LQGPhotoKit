@@ -31,7 +31,7 @@
         __block UIImage *tempImage;
         
         if (_fetchResult.count > 0) {
-            PHAsset *tempAsset = _fetchResult[_fetchResult.count - 1];
+            PHAsset *tempAsset = [_fetchResult lastObject];
             [[PhotoManager shareInstance] getThumbnail:tempAsset completed:^(UIImage *image) {
                 tempImage = image;
             }];

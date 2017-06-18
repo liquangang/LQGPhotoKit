@@ -20,7 +20,7 @@
 - (void)setAssetModel:(AssetModel *)assetModel{
     _assetModel = assetModel;
     
-    _imageView.image = assetModel.thumbnail;
+    _imageView.image = assetModel.previewImage;
 }
 
 
