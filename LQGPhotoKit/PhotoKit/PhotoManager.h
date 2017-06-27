@@ -34,6 +34,16 @@
 /**
  *  获取原图
  */
-- (void)getOriginImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed;
+- (void)getOriginalImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed;
+
+/**
+ *  获取playItem
+ */
+- (void)getPlayItem:(PHAsset *)asset completionHandler:(void(^)(AVPlayerItem *playerItem))completionHandler;
+
+/**
+ *  获取livePhoto
+ */
+- (void)getLivePhoto:(PHAsset *)asset completionHandler:(void(^)(PHLivePhoto *livePhoto))completionHandler;
 
 @end

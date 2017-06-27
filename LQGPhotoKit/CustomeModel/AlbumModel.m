@@ -24,6 +24,30 @@
     return self;
 }
 
+#pragma mark - publicMethod
+
+/**
+ *  block获取缩略图
+ */
+- (void)getThumbnailCompletionHandler:(void(^)(UIImage *image))completionHandler{
+    
+    void(^tempBlock)(UIImage *tempImage) = ^(UIImage *tempImage){
+        if (completionHandler) {
+            completionHandler(_thumbnail);
+        }
+    };
+   
+    if (_fetchResult.count > 0) {
+        PHAsset *tempAsset = _fetchResult[_fetchResult.count - 1];
+    
+        [[PhotoManager shareInstance] getThumbnail:tempAsset completed:^(UIImage *image) {
+            tempBlock(_thumbnail = image);
+        }];
+    }else{
+        tempBlock(_thumbnail = [UIImage imageNamed:@"blank"]);
+    }
+}
+
 #pragma mark - getter&setter
 
 - (UIImage *)thumbnail{

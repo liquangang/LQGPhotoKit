@@ -32,7 +32,10 @@
     
     NSString *tempString = [NSString stringWithFormat:@"%@(%ld)", albumModel.title, albumModel.fetchResult.count];
     _nameLabel.text = tempString;
-    _image.image = albumModel.thumbnail;
+    
+    [albumModel getThumbnailCompletionHandler:^(UIImage *image) {
+        _image.image = image;
+    }];
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *playImage;
+@property (weak, nonatomic) IBOutlet UILabel *livePhotoLabel;
 
 @property (nonatomic, strong) AssetModel *assetModel;
 @end

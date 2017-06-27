@@ -10,10 +10,15 @@
 #import "PhotoKitHeader.h"
 #import "AlbumModel.h"
 
+#define THUMBNAILSIZE CGSizeMake(SCREENSCALE * THUMBNAILWIdth, SCREENSCALE * THUMBNAILWIdth)       //缩略图size
+#define PREVIEWSIZE  CGSizeMake(SCREENSCALE * SCREEN_WIDTH, SCREENSCALE * SCREEN_WIDTH)            //预览图size
+#define ORIGINALSIZE PHImageManagerMaximumSize                                                     //原图size
+
 @interface PhotoManager()
 
 @property (nonatomic, strong) PHFetchOptions *options;
 @property (nonatomic, strong) PHImageRequestOptions *originRequestOptions;
+@property (nonatomic, strong) PHCachingImageManager *imageManager;
 
 @end
 
@@ -53,7 +58,7 @@ CREATESINGLETON(PhotoManager)
  *  获取每个资源对应的缩略图
  */
 - (void)getThumbnail:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
-    [self getImage:CGSizeMake(SCREENSCALE * THUMBNAILWIdth, SCREENSCALE * THUMBNAILWIdth) asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self getImage:THUMBNAILSIZE asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (completed) {
             completed(result);
         }
@@ -64,13 +69,7 @@ CREATESINGLETON(PhotoManager)
  *  获取预览图
  */
 - (void)getPreviewImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
-//    WEAKSELF
-//    self.originRequestOptions.synchronous = YES;
-//    self.originRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeFastFormat;
-    
     [self getImage:CGSizeMake(SCREENSCALE * SCREEN_WIDTH, SCREENSCALE * SCREEN_WIDTH) asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        weakSelf.originRequestOptions.synchronous = NO;
-//        weakSelf.originRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
         if (completed) {
             completed(result);
         }
@@ -80,10 +79,32 @@ CREATESINGLETON(PhotoManager)
 /**
  *  获取原图
  */
-- (void)getOriginImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
-    [self getImage:PHImageManagerMaximumSize asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+- (void)getOriginalImage:(PHAsset *)asset completed:(void(^)(UIImage *image))completed{
+    [self getImage:ORIGINALSIZE asset:asset completed:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (completed) {
             completed(result);
+        }
+    }];
+}
+
+/**
+ *  获取playItem
+ */
+- (void)getPlayItem:(PHAsset *)asset completionHandler:(void(^)(AVPlayerItem *playerItem))completionHandler{
+    [self.imageManager requestPlayerItemForVideo:asset options:nil resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+        if (completionHandler) {
+            completionHandler(playerItem);
+        }
+    }];
+}
+
+/**
+ *  获取livePhoto
+ */
+- (void)getLivePhoto:(PHAsset *)asset completionHandler:(void(^)(PHLivePhoto *livePhoto))completionHandler{
+    [self.imageManager requestLivePhotoForAsset:asset targetSize:PREVIEWSIZE contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
+        if (completionHandler) {
+            completionHandler(livePhoto);
         }
     }];
 }
@@ -94,8 +115,8 @@ CREATESINGLETON(PhotoManager)
  *  根据不同尺寸获取图片
  */
 - (void)getImage:(CGSize)size asset:(PHAsset *)asset completed:(void(^)(UIImage * _Nullable result, NSDictionary * _Nullable info))completed{
-    
-    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeAspectFill options:self.originRequestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+
+    [self.imageManager requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         
         if (completed) {
             completed(result, info);
@@ -122,6 +143,13 @@ CREATESINGLETON(PhotoManager)
         _originRequestOptions = originRequestOptions;
     }
     return _originRequestOptions;
+}
+
+- (PHCachingImageManager *)imageManager{
+    if (!_imageManager) {
+        _imageManager = [[PHCachingImageManager alloc] init];
+    }
+    return _imageManager;
 }
 
 @end
