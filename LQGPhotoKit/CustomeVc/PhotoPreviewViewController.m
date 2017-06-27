@@ -21,6 +21,8 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 >
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) AVPlayerLayer *playLayer;
+@property (nonatomic, strong) AVPlayer *player;
 
 @end
 
@@ -54,10 +56,46 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    WEAKSELF
+    
+    AssetModel *tempModel = self.dataSource[indexPath.row];
     PhotoPreviewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemResuableID forIndexPath:indexPath];
-    cell.assetModel = self.dataSource[indexPath.row];
+    cell.assetModel = tempModel;
+    
+    [cell setPlayButtonBlock:^{
+        [[PhotoManager shareInstance] getPlayItem:tempModel.asset completionHandler:^(AVPlayerItem *playerItem) {
+            [PhotoKitHeader asyncMainQueue:^{
+                
+                weakSelf.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+                
+                weakSelf.playLayer = [AVPlayerLayer playerLayerWithPlayer:weakSelf.player];
+                weakSelf.playLayer.frame = weakSelf.view.bounds;
+                
+                [weakSelf.view.layer addSublayer:weakSelf.playLayer];
+                [weakSelf.player play];
+            }];
+        }];
+    }];
     
     return cell;
+}
+
+/**
+ *  当cell要出现的时候处理一下，因为collectionView会预加载一个未显示的cell，这会导致cell的内容未被刷新，导致ui显示错误（全屏显示会遇到）
+ */
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //当下一个cell出现时移除播放器（其他时刻移除会出现播放器移除过早的情况，此时还没有切到另一个cell）
+    [self.playLayer removeFromSuperlayer];
+    [self.player pause];
+    
+    AssetModel *tempModel = self.dataSource[indexPath.row];
+    PhotoPreviewCollectionViewCell *previewCell = (PhotoPreviewCollectionViewCell *)cell;
+    previewCell.assetModel = tempModel;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
 }
 
 #pragma mark - publicMethod

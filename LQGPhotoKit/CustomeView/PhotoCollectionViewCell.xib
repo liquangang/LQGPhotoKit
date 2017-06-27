@@ -21,20 +21,46 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sha-Ra-Xse">
                         <rect key="frame" x="1" y="1" width="264" height="221"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playImage" translatesAutoresizingMaskIntoConstraints="NO" id="GYZ-tD-GYw">
+                        <rect key="frame" x="115" y="93.5" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="FAp-kY-VQd"/>
+                            <constraint firstAttribute="height" constant="36" id="agO-Tc-Dpf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LivePhoto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-d9-fZH">
+                        <rect key="frame" x="3" y="208" width="60" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="DR6-Xq-SPy"/>
+                            <constraint firstAttribute="height" constant="12" id="eBU-Vb-NvH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Sha-Ra-Xse" secondAttribute="trailing" constant="1" id="9OF-bd-U9Y"/>
                 <constraint firstAttribute="bottom" secondItem="Sha-Ra-Xse" secondAttribute="bottom" constant="1" id="Mch-wI-qxU"/>
+                <constraint firstItem="GYZ-tD-GYw" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="OYV-x7-MAp"/>
+                <constraint firstItem="FNE-d9-fZH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="PV5-qQ-tSs"/>
                 <constraint firstItem="Sha-Ra-Xse" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="Uyr-zv-9Kr"/>
+                <constraint firstItem="GYZ-tD-GYw" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Yqr-2H-ywe"/>
                 <constraint firstItem="Sha-Ra-Xse" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="f8r-w4-SLU"/>
+                <constraint firstAttribute="bottom" secondItem="FNE-d9-fZH" secondAttribute="bottom" constant="3" id="n6r-U4-p3s"/>
             </constraints>
             <size key="customSize" width="266" height="223"/>
             <connections>
                 <outlet property="imageView" destination="Sha-Ra-Xse" id="Bah-xR-FCu"/>
+                <outlet property="livePhotoLabel" destination="FNE-d9-fZH" id="oro-Ix-hJe"/>
+                <outlet property="playImage" destination="GYZ-tD-GYw" id="FbF-Y6-EP5"/>
             </connections>
-            <point key="canvasLocation" x="-265" y="-86"/>
+            <point key="canvasLocation" x="-985" y="-268"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="playImage" width="55" height="55"/>
+    </resources>
 </document>
