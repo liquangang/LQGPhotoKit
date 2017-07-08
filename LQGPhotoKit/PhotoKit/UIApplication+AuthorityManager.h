@@ -16,4 +16,9 @@
  */
 - (void)getPhotoAuthority:(void(^)(PHAuthorizationStatus photoAuthorizationStatus))completed;
 
+/**
+ *  获取相机权限
+ */
+- (void)getCameraAuthority:(void(^)(AVAuthorizationStatus authorizationStatus))completed;
+
 @end

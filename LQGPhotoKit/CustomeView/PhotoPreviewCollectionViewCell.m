@@ -40,6 +40,8 @@
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)longPress{
     if (self.assetModel.asset.mediaSubtypes == PHAssetMediaSubtypePhotoLive) {
+        
+        //播放livePhoto
         [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
     }
 }
@@ -64,7 +66,7 @@
         
         //获取livePhoto
         [[PhotoManager shareInstance] getLivePhoto:assetModel.asset completionHandler:^(PHLivePhoto *livePhoto) {
-           [PhotoKitHeader asyncMainQueue:^{
+           [PhotoManager asyncMainQueue:^{
                weakSelf.livePhotoView.livePhoto = livePhoto;
            }];
         }];

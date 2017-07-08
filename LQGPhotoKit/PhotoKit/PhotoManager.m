@@ -7,7 +7,6 @@
 //
 
 #import "PhotoManager.h"
-#import "PhotoKitHeader.h"
 #import "AlbumModel.h"
 
 #define THUMBNAILSIZE CGSizeMake(SCREENSCALE * THUMBNAILWIdth, SCREENSCALE * THUMBNAILWIdth)       //缩略图size
@@ -44,8 +43,8 @@ CREATESINGLETON(PhotoManager)
             
             PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
             
-            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:self.options];
-            AlbumModel *tempModel = [[AlbumModel alloc] initWithFetchResult:fetchResult title:collection.localizedTitle];
+            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+            AlbumModel *tempModel = [[AlbumModel alloc] initWithFetchResult:fetchResult title:assetCollection.localizedTitle];
             [tempMuArray addObject:tempModel];
             
         }
@@ -107,6 +106,24 @@ CREATESINGLETON(PhotoManager)
             completionHandler(livePhoto);
         }
     }];
+}
+
+/**
+ *  主线程
+ */
++ (void)asyncMainQueue:(void(^)())mainQueueBlock{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        mainQueueBlock();
+    });
+}
+
+/**
+ *  后台异步多线程
+ */
++ (void)asyncBackgroundQueue:(void(^)())backgroundQueueBlock{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        backgroundQueueBlock();
+    });
 }
 
 #pragma mark - privateMethod

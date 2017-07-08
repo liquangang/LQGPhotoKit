@@ -24,6 +24,8 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 @property (nonatomic, strong) AVPlayerLayer *playLayer;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) UIView *navView;                      //自定义导航栏
+@property (nonatomic, assign) BOOL isPlay;                          //记录播放状态
+@property (nonatomic, strong) AVPlayerItem *playerItem;             //播放资源对象
 
 @end
 
@@ -38,9 +40,6 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = [UIColor blackColor];
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonClicked:)];
-    self.navigationItem.rightBarButtonItem = item;
     
     [self.view addSubview:self.collectionView];
     [self.collectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
@@ -78,21 +77,21 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
     
     [cell setPlayButtonBlock:^{
         [[PhotoManager shareInstance] getPlayItem:tempModel.asset completionHandler:^(AVPlayerItem *playerItem) {
-            [PhotoKitHeader asyncMainQueue:^{
-                
-                weakSelf.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-                
-                weakSelf.playLayer = [AVPlayerLayer playerLayerWithPlayer:weakSelf.player];
-                weakSelf.playLayer.frame = weakSelf.view.bounds;
-                
-                [weakSelf.view.layer addSublayer:weakSelf.playLayer];
-                [weakSelf.player play];
+            [PhotoManager asyncMainQueue:^{
+                weakSelf.playerItem = playerItem;
+                [weakSelf playerPlay];
             }];
         }];
     }];
     
     [cell setTouchImageBlock:^{
         weakSelf.navView.hidden = !weakSelf.navView.hidden;
+        
+        if (weakSelf.isPlay) {
+            weakSelf.isPlay = NO;
+            [weakSelf.collectionView reloadData];
+            weakSelf.navView.hidden = NO;
+        }
     }];
     
     return cell;
@@ -104,8 +103,7 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     
     //当下一个cell出现时移除播放器（其他时刻移除会出现播放器移除过早的情况，此时还没有切到另一个cell）
-    [self.playLayer removeFromSuperlayer];
-    [self.player pause];
+    [self playerPause];
     
     AssetModel *tempModel = self.dataSource[indexPath.row];
     PhotoPreviewCollectionViewCell *previewCell = (PhotoPreviewCollectionViewCell *)cell;
@@ -127,12 +125,28 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 
 #pragma mark - privateMethod
 
-- (void)rightBarButtonClicked:(UIBarButtonItem *)barButtonItem{
+- (void)cancleButtonAction:(UIButton *)button{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)backButtonAction:(UIButton *)button{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)playerPause{
+    [self.playLayer removeFromSuperlayer];
+    [self.player pause];
+}
+
+- (void)playerPlay{
+    self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
+    
+    self.playLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    self.playLayer.frame = self.view.bounds;
+    
+    [self.view.layer addSublayer:self.playLayer];
+    [self.player play];
+    self.isPlay = YES;
 }
 
 #pragma mark - getter & setter
@@ -165,10 +179,17 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
         
         UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 44, 44)];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
-        [backButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [backButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         [tempView addSubview:backButton];
+        
+        UIButton *cancleButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 64, 20, 44, 44)];
+        [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
+        [cancleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [cancleButton addTarget:self action:@selector(cancleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [tempView addSubview:cancleButton];
         
         _navView = tempView;
     }

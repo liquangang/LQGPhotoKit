@@ -8,7 +8,6 @@
 
 #import "AlbumModel.h"
 #import "PhotoManager.h"
-#import "PhotoKitHeader.h"
 
 @implementation AlbumModel
 

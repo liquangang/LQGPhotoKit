@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AssetModel.h"
 #import "PhotoManager.h"
-#import "PhotoKitHeader.h"
 #import <AVKit/AVKit.h>
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>

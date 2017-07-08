@@ -14,9 +14,11 @@
 #import "LQGWaterFlowLayout.h"
 #import <MJRefresh.h>
 #import "TestSecondCollectionViewCell.h"
-#import "PhotoKitHeader.h"
 #import "ControlHeaderView.h"
 #import "PhotoHomeViewController.h"
+#import <Masonry.h>
+#import "PhotoManager.h"
+#import "PhotoPreviewViewController.h"
 
 static NSString *itemResuableStr = @"UICollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
@@ -52,12 +54,11 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.dataSourceMuArray.count == 0 ? 4 : self.dataSourceMuArray.count;
+    return self.dataSourceMuArray.count == 0 ? 1 : self.dataSourceMuArray.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemResuableStr forIndexPath:indexPath];
-//    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage new]];
     cell.backgroundColor = [UIColor whiteColor];
     cell.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     cell.layer.borderWidth = 0.5;
@@ -81,6 +82,12 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
         footer.backgroundColor = [UIColor greenColor];
         return footer;
     }
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [PhotoPreviewViewController pushToPreviewVc:self.navigationController dataSource:self.dataSourceMuArray indexPath:indexPath];
 }
 
 #pragma mark - private method

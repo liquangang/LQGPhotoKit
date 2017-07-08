@@ -7,12 +7,12 @@
 //
 
 #import "PhotoHomeViewController.h"
-#import "PhotoKitHeader.h"
 #import "PhotoManager.h"
 #import "AlbumModel.h"
 #import "PhotoHomeTableViewCell.h"
 #import "UIViewController+AuthorityManager.h"
 #import "PhotoViewController.h"
+#import <Masonry.h>
 
 static NSString *cellResuableID = @"PhotoHomeTableViewCell";
 static CGFloat cellHeight = 66;
@@ -86,7 +86,7 @@ static CGFloat cellHeight = 66;
     [viewController getPhotoAuthority:^(BOOL isCanUse) {
         
         if (isCanUse) {
-            [PhotoKitHeader asyncMainQueue:^{
+            [PhotoManager asyncMainQueue:^{
                 PhotoHomeViewController *tempVc = [PhotoHomeViewController new];
                 UINavigationController *tempNav = [[UINavigationController alloc] initWithRootViewController:tempVc];
                 

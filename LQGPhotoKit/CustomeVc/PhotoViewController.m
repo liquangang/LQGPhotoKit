@@ -8,10 +8,10 @@
 
 #import "PhotoViewController.h"
 #import <LQGWaterLayout.h>
-#import "PhotoKitHeader.h"
 #import "AssetModel.h"
 #import "PhotoCollectionViewCell.h"
 #import "PhotoPreviewViewController.h"
+#import "PhotoManager.h"
 
 static NSString *photoItemResuableStr = @"PhotoCollectionViewCell";
 static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";

@@ -7,7 +7,8 @@
 //
 
 #import "ControlHeaderView.h"
-#import "PhotoKitHeader.h"
+#import "PhotoManager.h"
+#import <Masonry.h>
 
 @implementation ControlHeaderView
 

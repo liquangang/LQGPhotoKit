@@ -10,7 +10,6 @@
 		0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */; };
 		07D54AAB1EF265400036BED6 /* UIApplication+AuthorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AAA1EF265400036BED6 /* UIApplication+AuthorityManager.m */; };
 		07D54AC11EF26C7E0036BED6 /* UIViewController+AuthorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AC01EF26C7E0036BED6 /* UIViewController+AuthorityManager.m */; };
-		07D54AC91EF26DEB0036BED6 /* PhotoKitHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AC81EF26DEB0036BED6 /* PhotoKitHeader.m */; };
 		07D54AD21EF273070036BED6 /* ControlHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AD11EF273070036BED6 /* ControlHeaderView.m */; };
 		07D54AD61EF278510036BED6 /* PhotoHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AD51EF278510036BED6 /* PhotoHomeViewController.m */; };
 		07D54ADA1EF28B970036BED6 /* AlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AD91EF28B970036BED6 /* AlbumModel.m */; };
@@ -60,8 +59,6 @@
 		07D54AAA1EF265400036BED6 /* UIApplication+AuthorityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AuthorityManager.m"; sourceTree = "<group>"; };
 		07D54ABF1EF26C7E0036BED6 /* UIViewController+AuthorityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AuthorityManager.h"; sourceTree = "<group>"; };
 		07D54AC01EF26C7E0036BED6 /* UIViewController+AuthorityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AuthorityManager.m"; sourceTree = "<group>"; };
-		07D54AC71EF26DEB0036BED6 /* PhotoKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoKitHeader.h; sourceTree = "<group>"; };
-		07D54AC81EF26DEB0036BED6 /* PhotoKitHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoKitHeader.m; sourceTree = "<group>"; };
 		07D54AD01EF273070036BED6 /* ControlHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlHeaderView.h; sourceTree = "<group>"; };
 		07D54AD11EF273070036BED6 /* ControlHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlHeaderView.m; sourceTree = "<group>"; };
 		07D54AD41EF278510036BED6 /* PhotoHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoHomeViewController.h; sourceTree = "<group>"; };
@@ -139,8 +136,6 @@
 		07D54AA81EF2616F0036BED6 /* PhotoKit */ = {
 			isa = PBXGroup;
 			children = (
-				07D54AC71EF26DEB0036BED6 /* PhotoKitHeader.h */,
-				07D54AC81EF26DEB0036BED6 /* PhotoKitHeader.m */,
 				07D54AA91EF265400036BED6 /* UIApplication+AuthorityManager.h */,
 				07D54AAA1EF265400036BED6 /* UIApplication+AuthorityManager.m */,
 				07D54ABF1EF26C7E0036BED6 /* UIViewController+AuthorityManager.h */,
@@ -354,7 +349,7 @@
 				TargetAttributes = {
 					16A1DB9D1EA39597003C5F95 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = RYWQLEHRAM;
+						DevelopmentTeam = 8A7VED9NUX;
 						ProvisioningStyle = Automatic;
 					};
 					16A1DBB61EA39597003C5F95 = {
@@ -488,7 +483,6 @@
 				07D54AC11EF26C7E0036BED6 /* UIViewController+AuthorityManager.m in Sources */,
 				07D54AE01EF28BE70036BED6 /* PhotoManager.m in Sources */,
 				07D54B281EF3DE9F0036BED6 /* PhotoPreviewViewController.m in Sources */,
-				07D54AC91EF26DEB0036BED6 /* PhotoKitHeader.m in Sources */,
 				07F0F0A61EB079B500E0CED4 /* TestSecondCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,7 +635,7 @@
 			baseConfigurationReference = 71ED944DB6A67C4C488676DA /* Pods-LQGPhotoKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RYWQLEHRAM;
+				DEVELOPMENT_TEAM = 8A7VED9NUX;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.photoKit;
@@ -654,7 +648,7 @@
 			baseConfigurationReference = DB282AD40083FC652E77FCE7 /* Pods-LQGPhotoKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RYWQLEHRAM;
+				DEVELOPMENT_TEAM = 8A7VED9NUX;
 				INFOPLIST_FILE = LQGPhotoKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liquangang.photoKit;
