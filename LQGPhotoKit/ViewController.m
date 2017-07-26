@@ -19,8 +19,10 @@
 #import <Masonry.h>
 #import "PhotoManager.h"
 #import "PhotoPreviewViewController.h"
+#import "AssetModel.h"
+#import "PhotoCollectionViewCell.h"
 
-static NSString *itemResuableStr = @"UICollectionViewCell";
+static NSString *itemResuableStr = @"PhotoCollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
 
 @interface ViewController ()
@@ -43,6 +45,9 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:self.selectImageCollectionView];
+    
+    //接收选中的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectAssetAction:) name:selectAssetNotiName object:nil];
 }
 
 
@@ -58,8 +63,14 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemResuableStr forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:itemResuableStr forIndexPath:indexPath];
+    
+    if (self.dataSourceMuArray.count > 0) {
+        AssetModel *assetModel = self.dataSourceMuArray[indexPath.row];
+        cell.assetModel = assetModel;
+    }
+    
+    cell.selectStatusButton.hidden = YES;
     cell.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     cell.layer.borderWidth = 0.5;
     
@@ -96,6 +107,12 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
     [PhotoHomeViewController presentSelectPhoto:self];
 }
 
+- (void)selectAssetAction:(NSNotification *)noti{
+    NSArray *tempArray = noti.userInfo[@"info"];
+    [self.dataSourceMuArray addObjectsFromArray:tempArray];
+    [self.selectImageCollectionView reloadData];
+}
+
 #pragma mark - getter
 
 - (UICollectionView *)selectImageCollectionView{
@@ -104,7 +121,7 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
         tempCollectionView.delegate = self;
         tempCollectionView.dataSource = self;
         tempCollectionView.backgroundColor = [UIColor clearColor];
-        [tempCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:itemResuableStr];
+        [tempCollectionView registerNib:[UINib nibWithNibName:itemResuableStr bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:itemResuableStr];
         [tempCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerResuableStr];
         [tempCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:headerResuableStr];
         

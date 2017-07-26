@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, MediaType) {
 
 @property (nonatomic, assign) MediaType type;           //资源类型
 
+@property (nonatomic, assign) BOOL isSelect;            //是否被选中
+
 /**
  *  初始化方法
  */

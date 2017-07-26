@@ -7,12 +7,38 @@
 //
 
 #import "PhotoCollectionViewCell.h"
+#import "PhotoManager.h"
+
+@interface PhotoCollectionViewCell()
+
+
+@end
 
 @implementation PhotoCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectStatusButton.layer.masksToBounds = YES;
+    self.selectStatusButton.layer.cornerRadius = 18;
+    self.selectStatusButton.backgroundColor = ColorFromRGBA(0x000000, 0.6);
+}
+
+#pragma mark - privateMethod
+
+- (void)showSelectStatus{
+    if (self.assetModel.isSelect) {
+        [self.selectStatusButton setTitle:@"选中" forState:UIControlStateNormal];
+    }else{
+        [self.selectStatusButton setTitle:@"" forState:UIControlStateNormal];
+    }
+}
+- (IBAction)selectStatusButtonAction:(id)sender {
+    self.assetModel.isSelect = !self.assetModel.isSelect;
+    [self showSelectStatus];
+    if (self.selectBlock) {
+        self.selectBlock(self.assetModel.isSelect);
+    }
 }
 
 #pragma mark - getter & setter
@@ -35,6 +61,8 @@
     }else{
         _livePhotoLabel.hidden = YES;
     }
+    
+    [self showSelectStatus];
 }
 
 @end

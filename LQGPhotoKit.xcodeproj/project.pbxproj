@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072572AC1F289554007F2689 /* AlreadySelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 072572AA1F289554007F2689 /* AlreadySelectCollectionViewCell.m */; };
+		072572AD1F289554007F2689 /* AlreadySelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072572AB1F289554007F2689 /* AlreadySelectCollectionViewCell.xib */; };
 		0737D9A11EB2E00600F3DF19 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */; };
 		07D54AAB1EF265400036BED6 /* UIApplication+AuthorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AAA1EF265400036BED6 /* UIApplication+AuthorityManager.m */; };
 		07D54AC11EF26C7E0036BED6 /* UIViewController+AuthorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D54AC01EF26C7E0036BED6 /* UIViewController+AuthorityManager.m */; };
@@ -53,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072572A91F289554007F2689 /* AlreadySelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlreadySelectCollectionViewCell.h; sourceTree = "<group>"; };
+		072572AA1F289554007F2689 /* AlreadySelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlreadySelectCollectionViewCell.m; sourceTree = "<group>"; };
+		072572AB1F289554007F2689 /* AlreadySelectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlreadySelectCollectionViewCell.xib; sourceTree = "<group>"; };
 		0737D99F1EB2E00600F3DF19 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
 		0737D9A01EB2E00600F3DF19 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		07D54AA91EF265400036BED6 /* UIApplication+AuthorityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AuthorityManager.h"; sourceTree = "<group>"; };
@@ -160,6 +165,9 @@
 				07D54B291EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.h */,
 				07D54B2A1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.m */,
 				07D54B2B1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib */,
+				072572A91F289554007F2689 /* AlreadySelectCollectionViewCell.h */,
+				072572AA1F289554007F2689 /* AlreadySelectCollectionViewCell.m */,
+				072572AB1F289554007F2689 /* AlreadySelectCollectionViewCell.xib */,
 			);
 			path = CustomeView;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 			files = (
 				07D54B2D1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib in Resources */,
 				16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */,
+				072572AD1F289554007F2689 /* AlreadySelectCollectionViewCell.xib in Resources */,
 				07D54B251EF3D96A0036BED6 /* PhotoCollectionViewCell.xib in Resources */,
 				07D54AF01EF37A170036BED6 /* PhotoHomeTableViewCell.xib in Resources */,
 				16A1DBAE1EA39597003C5F95 /* Assets.xcassets in Resources */,
@@ -480,6 +489,7 @@
 				07D54AAB1EF265400036BED6 /* UIApplication+AuthorityManager.m in Sources */,
 				07D54AF31EF38B350036BED6 /* PhotoViewController.m in Sources */,
 				07D54ADA1EF28B970036BED6 /* AlbumModel.m in Sources */,
+				072572AC1F289554007F2689 /* AlreadySelectCollectionViewCell.m in Sources */,
 				07D54AC11EF26C7E0036BED6 /* UIViewController+AuthorityManager.m in Sources */,
 				07D54AE01EF28BE70036BED6 /* PhotoManager.m in Sources */,
 				07D54B281EF3DE9F0036BED6 /* PhotoPreviewViewController.m in Sources */,

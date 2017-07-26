@@ -11,6 +11,7 @@
 #import "PhotoPreviewViewController.h"
 #import "AssetModel.h"
 #import "PhotoPreviewCollectionViewCell.h"
+#import "PhotoHomeViewController.h"
 
 static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 
@@ -175,7 +176,7 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
 - (UIView *)navView{
     if (!_navView) {
         UIView *tempView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-        tempView.backgroundColor = ColorFromRGB(0xFFFFFF, 0.88);
+        tempView.backgroundColor = ColorFromRGBA(0xFFFFFF, 0.88);
         
         UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 44, 44)];
         [backButton setTitle:@"返回" forState:UIControlStateNormal];
@@ -184,12 +185,14 @@ static NSString *itemResuableID = @"PhotoPreviewCollectionViewCell";
         
         [tempView addSubview:backButton];
         
-        UIButton *cancleButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 64, 20, 44, 44)];
-        [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
-        [cancleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [cancleButton addTarget:self action:@selector(cancleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [tempView addSubview:cancleButton];
+        if ([self.navigationController.viewControllers.firstObject isKindOfClass:[PhotoHomeViewController class]]) {
+            UIButton *cancleButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 64, 20, 44, 44)];
+            [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
+            [cancleButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+            [cancleButton addTarget:self action:@selector(cancleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [tempView addSubview:cancleButton];
+        }
         
         _navView = tempView;
     }

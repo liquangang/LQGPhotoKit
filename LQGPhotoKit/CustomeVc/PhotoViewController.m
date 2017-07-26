@@ -24,7 +24,10 @@ static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) LQGWaterFlowLayout *waterLayout;
-@property (nonatomic, strong) NSMutableArray *dataSourceMuArray;
+@property (nonatomic, strong) NSMutableArray *dataSourceMuArray;            //数据源
+@property (nonatomic, strong) NSMutableArray *selectMuArray;                //选中的asset
+
+@property (nonatomic, strong) UIButton *selectButton;           //底部的选中按钮
 
 @end
 
@@ -45,6 +48,7 @@ static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";
     self.navigationItem.rightBarButtonItem = item;
     
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.selectButton];
     
     for (int i = 0; i < self.albumModel.fetchResult.count; i++) {
         AssetModel *tempModel = [[AssetModel alloc] initWithAsset:self.albumModel.fetchResult[i]];
@@ -69,8 +73,23 @@ static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    WEAKSELF
+    
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:photoItemResuableStr forIndexPath:indexPath];
-    cell.assetModel = self.dataSourceMuArray[indexPath.row];
+    AssetModel *assetModel = self.dataSourceMuArray[indexPath.row];
+    cell.assetModel = assetModel;
+    
+    [cell setSelectBlock:^(BOOL isSelect){
+        if (isSelect && ![weakSelf.selectMuArray containsObject:assetModel]) {
+            [weakSelf.selectMuArray addObject:assetModel];
+        }
+        
+        if (!isSelect && [weakSelf.selectMuArray containsObject:assetModel]) {
+            [weakSelf.selectMuArray removeObject:assetModel];
+        }
+        
+        [weakSelf.selectButton setTitle:[NSString stringWithFormat:@"选中（%ld）", weakSelf.selectMuArray.count] forState:UIControlStateNormal];
+    }];
     
     return cell;
 }
@@ -109,7 +128,16 @@ static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";
 #pragma mark - privateMethod
 
 - (void)rightBarButtonClicked:(UIBarButtonItem *)barButtonItem{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    WEAKSELF
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSNotification *noti = [NSNotification notificationWithName:selectAssetNotiName object:nil userInfo:@{@"info":weakSelf.selectMuArray}];
+        [[NSNotificationCenter defaultCenter] postNotification:noti];
+    }];
+}
+
+- (void)selectButtonAction:(UIButton *)button{
+    [self rightBarButtonClicked:nil];
 }
 
 #pragma mark - getter&setter
@@ -150,6 +178,26 @@ static NSString *photoHeaderAndFooterResuableStr = @"headerAndFooter";
         _dataSourceMuArray = tempMuArray;
     }
     return _dataSourceMuArray;
+}
+
+- (UIButton *)selectButton{
+    if (!_selectButton) {
+        UIButton *tempView = [[UIButton alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 44, SCREEN_WIDTH, 44)];
+        tempView.backgroundColor = [UIColor lightGrayColor];
+        [tempView setTitle:@"选中（0）" forState:UIControlStateNormal];
+        [tempView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [tempView addTarget:self action:@selector(selectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+        _selectButton = tempView;
+    }
+    return _selectButton;
+}
+
+- (NSMutableArray *)selectMuArray{
+    if (!_selectMuArray) {
+        _selectMuArray = [[NSMutableArray alloc] init];
+    }
+    return _selectMuArray;
 }
 
 @end
