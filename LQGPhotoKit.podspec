@@ -11,5 +11,6 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
 s.author       = { "liquangang" => "1347336730@qq.com" }
 s.source       = { :git => "https://github.com/liquangang/LQGPhotoKit.git", :tag => "#{s.version}" }
 s.source_files  = "LQGPhotoKit/*"
-s.dependency = 'LQGWaterLayout'
+s.dependency 'LQGWaterLayout'
+s.dependency 'Masonry'
 end

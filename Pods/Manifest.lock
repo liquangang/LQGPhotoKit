@@ -1,12 +1,15 @@
 PODS:
   - LQGWaterLayout (1.0.2)
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - LQGWaterLayout
+  - Masonry
 
 SPEC CHECKSUMS:
   LQGWaterLayout: 9447aced5f131d7c4e46f822727d79f6d40587f8
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: ab2b052338beae81dabe6dac82ca9b9524d3dfab
+PODFILE CHECKSUM: 81dd713543c3a41ebaf9c1626ed2f781facc547e
 
 COCOAPODS: 1.2.1

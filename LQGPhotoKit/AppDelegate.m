@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <JPFPSStatus.h>
 
 /**
  *  做成跟微信相同的
@@ -22,7 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[JPFPSStatus sharedInstance] open];
     return YES;
 }
 
