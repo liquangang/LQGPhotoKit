@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import <JPFPSStatus.h>
 
+/**
+ *  做成跟微信相同的
+ */
+
 @interface AppDelegate ()
 
 @end

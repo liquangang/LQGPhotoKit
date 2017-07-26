@@ -90,6 +90,14 @@ static CGFloat cellHeight = 66;
                 PhotoHomeViewController *tempVc = [PhotoHomeViewController new];
                 UINavigationController *tempNav = [[UINavigationController alloc] initWithRootViewController:tempVc];
                 
+                //跳转到相机胶卷
+                for (AlbumModel *albumModel in tempVc.dataSourceMuArray) {
+                    if ([albumModel.title isEqualToString:@"相机胶卷"]) {
+                        [PhotoViewController pushToPhotoVc:tempNav albumModel:albumModel];
+                        break;
+                    }
+                }
+                
                 [viewController presentViewController:tempNav animated:YES completion:nil];
             }];
         }
