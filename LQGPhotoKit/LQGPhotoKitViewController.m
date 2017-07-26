@@ -10,7 +10,7 @@
  保存已选中的部分、缩略图等信息
  **************************************/
 
-#import "ViewController.h"
+#import "LQGPhotoKitViewController.h"
 #import "LQGWaterFlowLayout.h"
 #import <MJRefresh.h>
 #import "ControlHeaderView.h"
@@ -24,7 +24,7 @@
 static NSString *itemResuableStr = @"PhotoCollectionViewCell";
 static NSString *headerResuableStr = @"UICollectionReusableView";
 
-@interface ViewController ()
+@interface LQGPhotoKitViewController ()
 <
     UICollectionViewDelegate,
     UICollectionViewDataSource
@@ -37,7 +37,7 @@ static NSString *headerResuableStr = @"UICollectionReusableView";
 
 @end
 
-@implementation ViewController
+@implementation LQGPhotoKitViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

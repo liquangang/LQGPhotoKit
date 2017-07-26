@@ -24,7 +24,7 @@
 		07D54B2D1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D54B2B1EF3E5100036BED6 /* PhotoPreviewCollectionViewCell.xib */; };
 		16A1DBA31EA39597003C5F95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA21EA39597003C5F95 /* main.m */; };
 		16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA51EA39597003C5F95 /* AppDelegate.m */; };
-		16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA81EA39597003C5F95 /* ViewController.m */; };
+		16A1DBA91EA39597003C5F95 /* LQGPhotoKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A1DBA81EA39597003C5F95 /* LQGPhotoKitViewController.m */; };
 		16A1DBAC1EA39597003C5F95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A1DBAA1EA39597003C5F95 /* Main.storyboard */; };
 		16A1DBAE1EA39597003C5F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A1DBAD1EA39597003C5F95 /* Assets.xcassets */; };
 		16A1DBB11EA39597003C5F95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A1DBAF1EA39597003C5F95 /* LaunchScreen.storyboard */; };
@@ -83,8 +83,8 @@
 		16A1DBA21EA39597003C5F95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16A1DBA41EA39597003C5F95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16A1DBA51EA39597003C5F95 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		16A1DBA71EA39597003C5F95 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		16A1DBA81EA39597003C5F95 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		16A1DBA71EA39597003C5F95 /* LQGPhotoKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LQGPhotoKitViewController.h; sourceTree = "<group>"; };
+		16A1DBA81EA39597003C5F95 /* LQGPhotoKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LQGPhotoKitViewController.m; sourceTree = "<group>"; };
 		16A1DBAB1EA39597003C5F95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16A1DBAD1EA39597003C5F95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16A1DBB01EA39597003C5F95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 				16A1DBA11EA39597003C5F95 /* Supporting Files */,
 				16A1DBA41EA39597003C5F95 /* AppDelegate.h */,
 				16A1DBA51EA39597003C5F95 /* AppDelegate.m */,
-				16A1DBA71EA39597003C5F95 /* ViewController.h */,
-				16A1DBA81EA39597003C5F95 /* ViewController.m */,
+				16A1DBA71EA39597003C5F95 /* LQGPhotoKitViewController.h */,
+				16A1DBA81EA39597003C5F95 /* LQGPhotoKitViewController.m */,
 				16A1DBAA1EA39597003C5F95 /* Main.storyboard */,
 				16A1DBAD1EA39597003C5F95 /* Assets.xcassets */,
 				16A1DBAF1EA39597003C5F95 /* LaunchScreen.storyboard */,
@@ -458,7 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D54AD61EF278510036BED6 /* PhotoHomeViewController.m in Sources */,
-				16A1DBA91EA39597003C5F95 /* ViewController.m in Sources */,
+				16A1DBA91EA39597003C5F95 /* LQGPhotoKitViewController.m in Sources */,
 				07D54AD21EF273070036BED6 /* ControlHeaderView.m in Sources */,
 				07D54AEF1EF37A170036BED6 /* PhotoHomeTableViewCell.m in Sources */,
 				16A1DBA61EA39597003C5F95 /* AppDelegate.m in Sources */,
