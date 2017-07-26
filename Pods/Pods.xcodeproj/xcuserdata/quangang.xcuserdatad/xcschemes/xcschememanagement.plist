@@ -4,22 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>JPFPSStatus.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>LQGWaterLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MJRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0E5DB7248D21E026596705AAD1C77F5D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<key>5E8B74F91E47E45C29A382C19EE6114C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A494F5517D8DC3521852E0388FF1C88D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B5ABC01683CDF94F5C25CAFCA60129D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
