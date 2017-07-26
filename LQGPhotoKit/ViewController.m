@@ -13,7 +13,6 @@
 #import "ViewController.h"
 #import "LQGWaterFlowLayout.h"
 #import <MJRefresh.h>
-#import "TestSecondCollectionViewCell.h"
 #import "ControlHeaderView.h"
 #import "PhotoHomeViewController.h"
 #import <Masonry.h>
